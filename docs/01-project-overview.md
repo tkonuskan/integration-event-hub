@@ -18,10 +18,10 @@ Temel hedef, hiçbir tool’un diğerine hardcoded şekilde bağlı olmadığı,
 | Platform Servisleri| Veri Alma, Yönlendirme, Teslimat, DLQ Handler vb.                           | -                                          | Birbirleriyle Apache Kafka + HTTP üzerinden haberleşir        |
 | Mock Tool’lar      | Geliştirme ve test amaçlı simülasyon araçları                        | Test event’leri / test webhook’ları        | Platformun davranışını doğrulama imkânı         |
 
-Admin: Tüm CRUD (Create, Rename, Update, Delete) işlemlerini yapar, sistemi izler, DLQ’dan mesaj replay eder.
-Publisher Tool: Sadece event fırlatır. Kimlik kanıtı için API key + HMAC kullanır.
-Subscriber Tool: Webhook endpoint’i açar, gelen istekleri HMAC ile doğrular.
-Platform içi servisler: Birbirleriyle senkron HTTP veya asenkron Kafka ile konuşur.
+-  Admin: Tüm CRUD (Create, Rename, Update, Delete) işlemlerini yapar, sistemi izler, DLQ’dan mesaj replay eder.
+-  Publisher Tool: Sadece event fırlatır. Kimlik kanıtı için API key + HMAC kullanır.
+-  Subscriber Tool: Webhook endpoint’i açar, gelen istekleri HMAC ile doğrular.
+-  Platform içi servisler: Birbirleriyle senkron HTTP veya asenkron Kafka ile konuşur.
 
 ## Out of Scope (Sistemin Yapmadığı Şeyler)
 
