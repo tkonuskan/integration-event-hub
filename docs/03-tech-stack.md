@@ -24,10 +24,23 @@ Projenin kapsamı (çok sayıda servis + Admin UI + observability + test) göz �
 
 ## Veritabanı ve ORM
 
-- PostgreSQL
-- Prisma Client Python 
+Veritabanı : PostgreSQL
 
-**Gerekçe:** SQLAlchemy, kurulumu ve migration (Alembic) yönetimi karmaşık olabilir ve zaman kaybettirebilir. Prisma Client Python, tüm veritabanı şemasını tek bir okunabilir dosyada (schema.prisma) toplamamızı, otomatik type-safe (tip güvenli) kod üretmemizi ve prisma migrate komutlarıyla veritabanı güncellemelerini saniyeler içinde halletmemizi sağlayarak geliştirme hızımızı maksimuma çıkaracaktır.
+**ORM**
+ORM kullanmayı tercih ettim çünkü SQL Injection riskini büyük ölçüde engellemektedir.
+Değerlendirilen alternatifler:
+1. SQLAlchemy 2.0 + Alembic
+2. SQLModel + Alembic
+
+**Seçim: SQLModel + Alembic**
+
+**Gerekçe:**
+- SQLModel, SQLAlchemy 2.0 üzerine inşa edilmiştir, bu yüzden gücünden ödün vermez.
+- Pydantic ile birleşik model tanımı sayesinde FastAPI ile çok daha az kod tekrarı olur.
+- Öğrenme eğrisi SQLAlchemy’ye göre daha düşüktür.
+- Prisma benzeri bir geliştirici deneyimi sunar ama Python ekosisteminde kalmamızı sağlar.
+- Alembic ile migration yönetimi sorunsuz çalışır.
+//Migration yönetimi, veri, veritabanı şeması veya sistem altyapısının bir sürümden, platformdan ya da ortamdan diğerine güvenli, hatasız ve düzenli bir şekilde aktarılmasını planlama ve yürütme sürecidir
 
 ## Diğer Kritik Kütüphaneler
 
@@ -44,3 +57,5 @@ Projenin kapsamı (çok sayıda servis + Admin UI + observability + test) göz �
 
 - **REST + OpenAPI** (Admin API, Event Ingest,Webhook gönderimleri)
 - **Kafka** (event akışı)
+
+gRPC veya GraphQL seçilmedi çünkü geliştirme ve debug karmaşıklığını artırırdı.
