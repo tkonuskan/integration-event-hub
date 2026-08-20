@@ -42,5 +42,3 @@ Temel prensip: Hiçbir tool diğerine hardcoded bağlı değildir. Yeni tool ekl
 
 Tüm tasarım kararları ve gerekçeler `docs/` klasöründe tutulmaktadır. Her mimari karar yazılı olarak gerekçelendirilmiştir.
 
-## Çalıştırma (Sonraki adımlarda aktif olacak)
-
